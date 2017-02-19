@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
+  "modid": "pymcfo",
+  "name": "Jython for Forge",
+  "description": "Run Python scripts within Minecraft Forge.  Place scripts into directory ",
+  "version": "0.0.0",
+  "mcversion": "1.11.2",
   "url": "",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["Tino"],
+  "credits": "Made from the example by Forge and FML guys.  Partly based on ideas found elsewhere.",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
