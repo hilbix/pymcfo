@@ -7,14 +7,14 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 
 @Mod(modid = pymcfo.MODID, version = pymcfo.VERSION)
 public class pymcfo
-{
-    public static final String MODID = "pymcfo";
-    public static final String VERSION = "0.0.0";
-    
-    @EventHandler
-    public void init(FMLInitializationEvent event)
+  {
+  public static final String MODID = "pymcfo";
+  public static final String VERSION = "0.0.0";
+
+  @EventHandler
+  public void init(FMLInitializationEvent event)
     {
-        // some example code
-        System.out.println("DIRT BLOCK >> "+Blocks.DIRT.getUnlocalizedName());
+      // some example CodeExecutor
+      System.out.println("DIRT BLOCK >> "+Blocks.DIRT.getUnlocalizedName());
     }
-}
+  }
