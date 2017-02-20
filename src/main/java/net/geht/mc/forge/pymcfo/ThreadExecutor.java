@@ -12,28 +12,38 @@ public class ThreadExecutor implements Runnable
   protected int n;
   protected Runnable r;
   protected ThreadExecutorCallback cb = null;
+  private String name;
 
-  public ThreadExecutor(Runnable r)
+  public ThreadExecutor(Runnable r, String name)
     {
-      init(r);
+      init(r, name);
     }
 
-  protected void init(Runnable r)
+  protected void debug(String s)
     {
+      System.out.println("[[["+this.name+" "+s+"]]]");
+    }
+
+  protected void init(Runnable r, String name)
+    {
+      this.name = name;
+      debug("new");
       this.r = r;
       t = new Thread(this);
       n = list.add(this);
       t.start();
+      debug("started");
     }
 
-  public ThreadExecutor(Runnable r, ThreadExecutorCallback cb)
+  public ThreadExecutor(Runnable r, String name, ThreadExecutorCallback cb)
     {
       this.cb = cb;
-      init(r);
+      init(r, name);
     }
 
   public void stop() throws InterruptedException
     {
+      debug("stopped");
       t.interrupt();
       t.join();
     }
@@ -43,12 +53,15 @@ public class ThreadExecutor implements Runnable
     {
       try
         {
+          debug("start");
           r.run();
+          debug("end");
         } finally
         {
           list.del(n, this);
           if (cb!=null)
             cb.pymcfo_thread_executor_callback();
         }
+      debug("exit");
     }
   }
