@@ -3,7 +3,7 @@ package net.geht.mc.forge.pymcfo;
 /**
  * Is there somewhere a standard implementation of this?
  */
-public interface Callback
+public interface ThreadExecutorCallback
   {
-  void callback();
+  void pymcfo_thread_executor_callback();
   }

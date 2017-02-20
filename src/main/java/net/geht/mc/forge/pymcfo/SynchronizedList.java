@@ -26,7 +26,7 @@ public class SynchronizedList<T>
    * Add element to the list
    *
    * @param e element to add
-   * @return int stable array index
+   * @return stable array index (int)
    */
   public synchronized int add(T e)
     {
@@ -36,7 +36,7 @@ public class SynchronizedList<T>
 
       n = list.size();
       list.add(n, e);
-      assert (list.get(n)==e);
+      assert list.get(n)==e;
       return n;
     }
 

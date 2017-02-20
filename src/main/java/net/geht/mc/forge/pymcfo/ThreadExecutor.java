@@ -3,6 +3,7 @@ package net.geht.mc.forge.pymcfo;
 /**
  * Register some runnables
  */
+
 public class ThreadExecutor implements Runnable
   {
   protected static SynchronizedList<ThreadExecutor> list = new SynchronizedList<ThreadExecutor>();
@@ -10,7 +11,7 @@ public class ThreadExecutor implements Runnable
   protected Thread t;
   protected int n;
   protected Runnable r;
-  protected Callback cb = null;
+  protected ThreadExecutorCallback cb = null;
 
   public ThreadExecutor(Runnable r)
     {
@@ -25,7 +26,7 @@ public class ThreadExecutor implements Runnable
       t.start();
     }
 
-  public ThreadExecutor(Runnable r, Callback cb)
+  public ThreadExecutor(Runnable r, ThreadExecutorCallback cb)
     {
       this.cb = cb;
       init(r);
@@ -47,7 +48,7 @@ public class ThreadExecutor implements Runnable
         {
           list.del(n, this);
           if (cb!=null)
-            cb.callback();
+            cb.pymcfo_thread_executor_callback();
         }
     }
   }
