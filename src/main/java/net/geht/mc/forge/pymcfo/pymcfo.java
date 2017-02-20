@@ -10,6 +10,7 @@ import org.apache.commons.io.filefilter.FileFilterUtils;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FilenameFilter;
+import java.io.IOException;
 
 @Mod(modid = pymcfo.MODID, version = pymcfo.VERSION)
 public class pymcfo
@@ -17,21 +18,51 @@ public class pymcfo
   public static final String MODID = Config.NAME;
   public static final String VERSION = Config.VERSION;
 
+  public String canonicalPath(File file)
+    {
+      try
+        {
+          return file.getCanonicalPath();
+        } catch (IOException e)
+        {
+          return file.getName();
+        }
+    }
+
+  public String canonicalPath(String file)
+    {
+      return canonicalPath(new File(file));
+    }
+
   @EventHandler
   public void init(FMLInitializationEvent event)
     {
-      File dir = new File(Config.PYMCFO_SCRIPTS);
+      File   dir = new File(Config.PYMCFO_SCRIPTS);
+      String src = canonicalPath(dir);
+      String cwd = canonicalPath(".");
 
-      for (File py : dir.listFiles(new CaseInsensitiveSuffixFileFilter(Config.PY_EXTENSION)))
+      System.out.println("");
+      System.out.println("starting: "+MODID);
+      System.out.println("CWD "+cwd);
+      System.out.println("SRC "+src);
+
+      if (!dir.exists() || !dir.isDirectory())
+        System.out.println("SRC not found");
+      else
         {
-          try
+          for (File py : dir.listFiles(new CaseInsensitiveSuffixFileFilter(Config.PY_EXTENSION)))
             {
-              new CodeExecutor(py);
-            } catch (FileNotFoundException e)
-            {
-              e.printStackTrace();
+              try
+                {
+                  System.out.println("running "+canonicalPath(py));
+                  new CodeExecutor(py);
+                } catch (FileNotFoundException e)
+                {
+                  e.printStackTrace();
+                }
             }
         }
-      System.out.println("DIRT BLOCK >> "+Blocks.DIRT.getUnlocalizedName());
+      System.out.println("startup complete: "+MODID);
+      System.out.println("");
     }
   }
