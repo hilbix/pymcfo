@@ -1,10 +1,15 @@
 package net.geht.mc.forge.pymcfo;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOCase;
+import org.apache.commons.io.filefilter.FileFilterUtils;
+import org.apache.commons.io.filefilter.TrueFileFilter;
 import org.python.core.*;
 import org.python.util.InteractiveInterpreter;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 /**
  * Jython Code Executor
@@ -14,26 +19,32 @@ import java.io.FileInputStream;
 public class CodeExecutor extends InteractiveInterpreter implements Runnable
   {
   @SuppressWarnings("WeakerAccess")
-  public static final String LIBS = "libraries/";
+  public static final String LIBS = Config.MINECRAFT_LIBS;
 
   @SuppressWarnings("WeakerAccess")
   protected PyCode code;
 
   public CodeExecutor() { super(null, newState()); }
 
+  public CodeExecutor(String script) { super(null, newState()); set(script); }
+
+  public CodeExecutor(File file) throws FileNotFoundException
+    {
+      super(null, newState());
+      set(file);
+    }
+
   public static PySystemState newState()
     {
       PySystemState state = new PySystemState();
       state.path.append(new PyString((new File(".")).getAbsolutePath()));
-      state.path.append(new PyString((new File("pymcfo.lib/")).getAbsolutePath()));
+      state.path.append(new PyString((new File(Config.PYMCFO_LIBS)).getAbsolutePath()));
       try
         {
-          for (File lib : (new File(LIBS)).listFiles())
-            {
-              String name = lib.getName();
-              if (name.endsWith(".jar"))
-                state.path.append(new PyString(new File(LIBS+name).getAbsolutePath()));
-            }
+          for (File jar : FileUtils.listFiles(new File(LIBS),
+                                              FileFilterUtils.suffixFileFilter(Config.JAR_EXTENSION, IOCase.INSENSITIVE),
+                                              TrueFileFilter.TRUE))
+            state.path.append(new PyString(jar.getAbsolutePath()));
         } catch (Exception e) {}
       return state;
     }
