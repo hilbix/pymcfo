@@ -13,7 +13,7 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 
 @Mod(modid = pymcfo.MODID, version = pymcfo.VERSION)
-public class pymcfo
+public class pymcfo implements Runnable
   {
   public static final String MODID = Config.NAME;
   public static final String VERSION = Config.VERSION;
@@ -37,6 +37,12 @@ public class pymcfo
   @EventHandler
   public void init(FMLInitializationEvent event)
     {
+      new Thread(this).start();
+    }
+
+  @Override
+  public void run()
+    {
       File   dir = new File(Config.PYMCFO_SCRIPTS);
       String src = canonicalPath(dir);
       String cwd = canonicalPath(".");
@@ -55,7 +61,7 @@ public class pymcfo
               try
                 {
                   System.out.println("running "+canonicalPath(py));
-                  new CodeExecutor(py);
+                  new ThreadExecutor(new CodeExecutor(py), py.getName());
                 } catch (FileNotFoundException e)
                 {
                   e.printStackTrace();
