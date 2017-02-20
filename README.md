@@ -113,6 +113,15 @@ I like Python, everything is readily available and was easy to integrate.
 
 This is a Python interpreter written in Java.
 
+- License?
+
+For all the license files please have a look into directory `license/`.
+
+For everything written by me (directories `src/` and `examples`), following License applies:
+
+This Works is placed under the terms of the Copyright Less License,
+see file COPYRIGHT.CLL.  USE AT OWN RISK, ABSOLUTELY NO WARRANTY.
+
 
 # TODO
 
