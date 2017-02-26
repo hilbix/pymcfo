@@ -2,14 +2,14 @@
 {
   "modid": "pymcfo",
   "name": "Jython for Forge",
-  "description": "Run Python scripts within Minecraft Forge.  Place scripts into directory ",
-  "version": "0.0.0",
-  "mcversion": "1.11.2",
-  "url": "",
-  "updateUrl": "",
+  "description": "Run Python scripts within Minecraft Forge.  Create directory pymcfo under \$HOME/.minecraft/ or APPDATA\\.minecraft\\ and place *.py files in it.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "logofile": "",
+  "url": "https://github.com/hilbix/pymcfo/",
+  "ignore_updateJSON": "https://raw.githubusercontent.com/hilbix/pymcfo/master/update.json",
   "authorList": ["Tino"],
-  "credits": "Made from the example by Forge and FML guys.  Partly based on ideas found elsewhere.",
-  "logoFile": "",
+  "credits": "Made from the example by Forge and FML guys and other forge documentation.  Partly based on ideas found elsewhere.",
   "screenshots": [],
   "dependencies": []
 }
