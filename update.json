@@ -1,10 +1,11 @@
 {
   "homepage": "https://github.com/hilbix/pymcfo/tree/builds",
   "1.11.2": {
-    "0.0.0": "started to work but not really useful.  Runs scripts in dir pymcfo/ on MC startup, but no real Forge integration yet"
+    "0.0.0": "started to work but not really useful.  Runs scripts in dir pymcfo/ on MC startup, but no real Forge integration yet",
+    "0.0.1": "Entwicklung"
   },
   "promos": {
     "1.11.2-recommended": "0.0.0",
-    "1.11.2-latest": "0.0.0"
+    "1.11.2-latest": "0.0.1"
   }
 }
