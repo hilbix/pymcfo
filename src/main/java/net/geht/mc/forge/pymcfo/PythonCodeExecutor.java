@@ -4,7 +4,11 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOCase;
 import org.apache.commons.io.filefilter.FileFilterUtils;
 import org.apache.commons.io.filefilter.TrueFileFilter;
-import org.python.core.*;
+import org.python.core.CompileMode;
+import org.python.core.Py;
+import org.python.core.PyCode;
+import org.python.core.PyString;
+import org.python.core.PySystemState;
 import org.python.util.InteractiveInterpreter;
 
 import java.io.File;
