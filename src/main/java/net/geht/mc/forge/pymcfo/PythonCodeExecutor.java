@@ -20,7 +20,7 @@ import java.io.FileNotFoundException;
  * <p>
  * See http://blog.macuyiko.com/post/2015/rebuilding-our-jython-console-plugin-for-minecraft.html
  */
-public class CodeExecutor extends InteractiveInterpreter implements Runnable
+public class PythonCodeExecutor extends InteractiveInterpreter implements Runnable
   {
   @SuppressWarnings("WeakerAccess")
   public static final String LIBS = Config.MINECRAFT_LIBS;
@@ -28,11 +28,11 @@ public class CodeExecutor extends InteractiveInterpreter implements Runnable
   @SuppressWarnings("WeakerAccess")
   protected PyCode code;
 
-  public CodeExecutor() { super(null, newState()); }
+  public PythonCodeExecutor() { super(null, newState()); }
 
-  public CodeExecutor(String script) { super(null, newState()); set(script); }
+  public PythonCodeExecutor(String script) { super(null, newState()); set(script); }
 
-  public CodeExecutor(File file) throws FileNotFoundException
+  public PythonCodeExecutor(File file) throws FileNotFoundException
     {
       super(null, newState());
       set(file);
@@ -56,15 +56,15 @@ public class CodeExecutor extends InteractiveInterpreter implements Runnable
   @Override
   public void run() { exec(code); }
 
-  public CodeExecutor set(String script) { return set(script, false); }
+  public PythonCodeExecutor set(String script) { return set(script, false); }
 
-  public CodeExecutor set(String script, boolean interactive)
+  public PythonCodeExecutor set(String script, boolean interactive)
     {
       code = Py.compile_flags(script, "<script>", interactive ? CompileMode.single : CompileMode.eval, this.cflags);
       return this;
     }
 
-  public CodeExecutor set(File file) throws java.io.FileNotFoundException
+  public PythonCodeExecutor set(File file) throws java.io.FileNotFoundException
     {
       code = Py.compile_flags(new FileInputStream(file), file.getName(), CompileMode.exec, this.cflags);
       return this;

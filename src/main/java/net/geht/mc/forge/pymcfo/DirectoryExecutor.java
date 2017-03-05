@@ -3,11 +3,16 @@ package net.geht.mc.forge.pymcfo;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class DirectoryExecutor implements Runnable
   {
   private File dir;
   private Thread t;
+  private URLClassLoader loader;
 
   public static String canonicalPath(File file)
     {
@@ -33,10 +38,12 @@ public class DirectoryExecutor implements Runnable
 
   private void init(File file)
     {
-      this.dir = dir;
+      dir = file;
+      loader = new URLClassLoader(Config.PYMCFO_LIBS+"jython-standalone-2.7.0.jar");
 
+      //System.setProperty("legacy.debugClassLoading", "true");
       t = new Thread(this);
-      t.start();  // run this
+      t.start();
     }
 
   public DirectoryExecutor join() throws InterruptedException
@@ -63,9 +70,30 @@ public class DirectoryExecutor implements Runnable
               try
                 {
                   System.out.println("EXEC "+canonicalPath(py));
-                  new ThreadExecutor(new CodeExecutor(py), py.getName());
-                } catch (FileNotFoundException e)
+
+                  Class<?> klass = loader.loadClass("net.geht.mc.forge.pymcfo.PythonCodeExecutor", true);
+                  Constructor inter = klass.getDeclaredConstructor(String.class);
+                  //inter.setAccessible(true);
+                  new ThreadExecutor((Runnable) inter.newInstance(py), py.getName());
+                } catch (NoSuchMethodException e)
                 {
+                  System.out.println("NoSuchMethodException");
+                  e.printStackTrace();
+                } catch (InstantiationException e)
+                {
+                  System.out.println("InstantiationException");
+                  e.printStackTrace();
+                } catch (IllegalAccessException e)
+                {
+                  System.out.println("IllegalAccessException");
+                  e.printStackTrace();
+                } catch (InvocationTargetException e)
+                {
+                  System.out.println("InvocationTargetException");
+                  e.printStackTrace();
+                } catch (ClassNotFoundException e)
+                {
+                  System.out.println("ClassNotFoundException");
                   e.printStackTrace();
                 }
             }
