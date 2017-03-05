@@ -2,7 +2,7 @@
 {
   "modid": "pymcfo",
   "name": "Jython for Forge",
-  "description": "Run Python scripts within Minecraft Forge.  Create directory pymcfo under \$HOME/.minecraft/ or APPDATA\\.minecraft\\ and place *.py files in it.",
+  "description": "Run *.py Python scripts within Minecraft Forge.  Download Jython .jar from jython.org and place it into dir pymcfo.lib, you can place additional libs if you like there.\\nStartup scripts go in pymcfo.ini, server side in pymcfo.srv, client side in pymcfo.usr, /py commands in pymcfo.run.\\nBase for all dirs is \$HOME/.minecraft/ or APPDATA\\\\.minecraft\\\\",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "logofile": "",
