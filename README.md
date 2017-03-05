@@ -9,28 +9,31 @@ Minecraft Forge module to run Python scripts
 
 ## Usage
 
-> This does not yet work, as there is no binary distribution yet.
-> When you want to launch Minecraft Client yourself, **see next section**.
+> This is under development, so not all features are implemented already!
 
-- Locate the `.minecraft` folder.
+- Locate the `.minecraft` folder.  Everything needs to be put below that:
   - Unix: `$HOME/.minecraft`
   - Windows: `%APPDATA%\.minecraft`
-- Download jython from [jython.org](http://www.jython.org/downloads.html)
-- Put the `jython*.jar` into directory `libraries`
-- Download the `pymcfo*.jar` (see below)
-- Place the `pymcfo*.jar` into directory `mods`
-- Download (or write) python scripts
-- Place python scripts into directory `pymcfo.run`
-- Place python libraries into directory `pymcfo.lib`
+- Download suitable `pymcfo*.jar` from https://github.com/hilbix/pymcfo/tree/builds (or compile it yourself, it|s in `build/libs/` then)
+- Place the `pymcfo*.jar` into dir `mods`
+- Run Minecraft once. This created directories:
+  - `pymcfo.ini` when Minecraft is started (before entering world)
+  - `pymcfo.srv` on the Minecraft server side
+  - `pymcfo.usr` on the Minecraft client side
+  - `pymcfo.run` for chat (or server console) `/py` command
+  - `pymcfo.lib` where Jython and optional additional libs can be placed
+- Download Jython from [jython.org](http://www.jython.org/downloads.html)
+  - Put `jython*.jar` in `pymcfo.lib`
+- Download (or write) python scripts.  Those scripts are text files and end on `.py`
+- Place Python scripts into the proper directory (ini/srv/usr/run)
+- As always: Be careful, as insecure scripts may harm your server!
 
 Then:
 
 - Launch Minecraft with Forge
-- Module `pymcfo` reads all files from directorty `pymcfo`
-- Each `*.py` script directory `pymcfo` will be started in it's own thread
-- ~~Each subdirectory of `pymcfo` will be run as a package in it's own thread~~
-
-~~There are examples which start a telnet like service for an external shell etc.~~
+- Module `pymcfo` reads all files at the several stages
+- Each script runs in it's own thread, so they all run in parallel.
+- See `examples/` folder for examples
 
 
 ## Change code using Intellij Idea
@@ -40,7 +43,7 @@ Then:
 - Clone Repo from https://github.com/hilbix/pymcfo.git
 - Import your project into IntelliJ Idea
 - Choose "build.gradle"
-- ???
+- ??? (sorry, I have not yet checked what to do here!) ???
 - Open sidebar "Gradle"
 - expand "pymcfo" "Tasks" "forgegradle"
 - rightclick "setupDecompWorkspace" select "Create"
