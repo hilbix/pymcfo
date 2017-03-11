@@ -45,8 +45,8 @@ Then:
 - Choose "build.gradle"
 - ??? (sorry, I have not yet checked what to do here!) ???
 - Open sidebar "Gradle"
-- expand "pymcfo" "Tasks" "forgegradle"
-- rightclick "setupDecompWorkspace" select "Create"
+- expand "pymcfo" "Tasks" `forgegradle`
+- right click `setupDecompWorkspace` select "Create"
 - Run the newly created "Run Configuration"
 - Refresh the Gradle projects
 - Afterwards run "GenIntellijRuns"
@@ -89,10 +89,20 @@ If you want to automatically invoke this "Artifact" on launch, do this:
 > **Explained:**  In `pymcfo/examples/pymcfo` there are example Python scripts.
 > The Artifact copies those into the `run` directory, such that they are found on Start of "Minecraft Client".
 > You need to "Build" this artifact (Menu "Build", "Build Artifacts..") manually,
-> or, when changed in the Run-Configuration, the files are always copied when lauched.)
+> or, when changed in the Run-Configuration, the files are always copied when launched.)
 
 
 ## FAQ
+
+- Update Forge?
+
+Open file `build.gradle`.
+
+Find `minecraft {` and change `version = "`**1.X.Y-Z**`"` to the new Forge version.
+Versions can be found in the "Version" column on [https://files.minecraftforge.net/]().
+You want the recommended version.  PyMcFo might also work for other main versions of Forge, too.
+
+Afterwards run Gradle task `SetupDecompWorkspace` and follow from there.
 
 - Why?
 
@@ -116,6 +126,13 @@ I like Python, everything is readily available and was easy to integrate.
 
 This is a Python interpreter written in Java.
 
+- PyMcFo?
+
+Sorry, I did not find a catchy name.
+If you have a better idea,
+and allow me to use this freely (see License),
+I am all ears.
+
 - License?
 
 For all the license files please have a look into directory `license/`.
@@ -124,6 +141,13 @@ For everything written by me (directories `src/` and `examples`), following Lice
 
 This Works is placed under the terms of the Copyright Less License,
 see file COPYRIGHT.CLL.  USE AT OWN RISK, ABSOLUTELY NO WARRANTY.
+
+- Contact?
+
+As I do not read mails, open an issue on Github or make a pull request.
+
+Sorry, my pager [https://hydra.geht.net/pager.php]() is currently down.
+But if it is back up you can use it again.
 
 
 # TODO
@@ -134,4 +158,10 @@ see file COPYRIGHT.CLL.  USE AT OWN RISK, ABSOLUTELY NO WARRANTY.
 - Java wrappers for Python, such that this all can be done from Python
 - start python scripts from server console
 - start python scripts from chat
-- Update to newer forge
+
+# Unknowns
+
+Perhaps somebody else can enlighten me.
+
+- How to edit Gradle such, that build copies `example` subdirectories to `run` output (probably only in IntelliJ Idea?  Currently I add build artifacts for that manually which is not nice.)
+- A short, really easy to understand, comprehensive manual of Gradle which a complete coverage of everything I might want to know about (like the previous point).
