@@ -1,3 +1,6 @@
 [submodule "libs"]
 	path = libs
 	url = https://github.com/hilbix/pymcfo.git
+[submodule "builds"]
+	path = builds
+	url = https://github.com/hilbix/pymcfo.git
