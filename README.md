@@ -106,7 +106,7 @@ Then:
   - Menu "Run" "Edit Configurations"
     - "Minecraft Client", "Configuration" under "Before launch: Build Project, Activate tool Window"
       - change "Build" into "Build Project"
-      - This is done by adding actiom "Build Project"
+      - This is done by adding action "Build Project"
       - and then removing "Build" (as it is redundant)
     - Do the same for "Minecraft Server"
 
@@ -143,7 +143,7 @@ And I think this already is much too complex.
 > - Navigate to https://github.com/hilbix/pymcfo to see this README.
 > - In this README there is a simple link.
 > - You can click on it to start the building process.
->   - No cmoplex questions asked except, perhaps, a local target folder.
+>   - No complex questions asked except, perhaps, a local target folder.
 >   - No additional installations or updates of your environment needed.
 >   - No additional configuration needed, as everything is readily configured.
 >   - No additional explanations needed, as it just works.
