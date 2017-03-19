@@ -1,5 +1,5 @@
 > This is in an early stage.  Python scripts already can execute.
-> 
+>
 > - Python scripts run in their own thread and Python interpreter each.
 > - They can probably read all Minecraft objects and elements.
 > - However I am not sure that they can properly alter things in Minecraft (due to the threading)
@@ -53,7 +53,7 @@ Then:
 > (To "Everything, you never wanted to know about Gradle, and never wanted to be forced to ask ever, too.") Thanks!
 
 - Import your project into IntelliJ Idea
-  - URL https://github.com/hilbix/pymcfo 
+  - URL https://github.com/hilbix/pymcfo
   - Name: pymcfo
 - In the "Event Log" there will be a link called "Import Gradle project".  Click it.
   - Enable "Create directories for empty content roots automatically"
@@ -101,7 +101,7 @@ Then:
     - Enable "Include in project build"
     - Under "Output Layout" click "+", "Directory Content"
       - Select directory `pymcfo/examples`
-- If you want to automatically invoke this "Artifact" on launch, do this: 
+- If you want to automatically invoke this "Artifact" on launch, do this:
   - **Beware!** This overwrites data in `run/pymcfo/` without question!
   - Menu "Run" "Edit Configurations"
     - "Minecraft Client", "Configuration" under "Before launch: Build Project, Activate tool Window"
@@ -166,16 +166,19 @@ And I think this already is much too complex.
 > - Open your local project file `build.gradle`.
 > - Update the `minecraft {` block of your local file accordingly
 > - Be sure to replace `version` and `mapping`, as they belong together!
-> 
+>
 > Afterwards run Gradle task `SetupDecompWorkspace` and follow the yellow brick road.
+
 
 - Why?
 
 > Because I was unable to find Python for Forge.
 
+
 - Why Forge?
 
 > Because Forge runs on Servers as well as on standalone Clients.
+
 
 - Why Python?
 
@@ -183,46 +186,67 @@ And I think this already is much too complex.
 > It is scripting and easy to change interactively.
 > So no need to restart Minecraft while changing scripts.
 
+
 - Why no other Language?
 
 > I like Python, everything is readily available and was easy to integrate.
+
 
 - Jython?
 
 > This is a Python interpreter written in Java.
 
+
 - PyMcFo?
 
 > Sorry, I did not find a catchy name.
-> 
+>
 > If you have a better idea,
 > and allow me to use this freely (see License),
 > I am all ears.
 
+
 - Logo?
 
 > Sorry, I am not into graphics.
-> 
+>
 > If you have a nice logo (please SVG),
 > and allow me to use this freely (see License),
 > I am all ears.
 
+
+- `git` submodules?
+
+> Some people think, `git submodule` is evil.  Many alternatives were developed, like `gitslave`, `git subtree`, `git subrepo` and `git monorepo`.
+> However, git submodules offer one unique feature:  You can **support rewriting of history without breaking it**!
+>
+> Thanks to this unique feature, you can work against the problem of ever growing `git` repo data.
+>
+> For example, in future I can remove old builds or old variants of the big `libs/jython-*.jar` without trouble.3
+> And I can split the `git` repo into a small main repo an a big overwhelming archive repo.
+> You then can `git fetch` the archive into your local repo to bring back archived SHAs temporarily.
+> The main repo still    stays fully functional and operable, without any holes nor any broken parts.
+>
+> Without `git submodule` you need to rewrite history by rebasing to be able to remove files from commits.
+
+
 - License?
 
 > For all the license files please have a look into directory `license/`.
-> 
+>
 > For everything written by me (directories `src/` and `examples`), following License applies:
-> 
+>
 >     This Works is placed under the terms of the Copyright Less License,
 >     see file COPYRIGHT.CLL.  USE AT OWN RISK, ABSOLUTELY NO WARRANTY.`
-> 
+>
 > You can add your license, but it must be a free license, with free as in
 free beer and free speech and, if possible, free baby.
+
 
 - Contact?
 
 > As I do not read mails, **open an issue on Github or send a pull request**.
-> 
+>
 > Sorry, my pager [https://hydra.geht.net/pager.php]() is currently down.
 > But if it is back up you can use it, of course.
 
@@ -239,7 +263,7 @@ free beer and free speech and, if possible, free baby.
 # Unknowns
 
 > Perhaps somebody else can enlighten me.
-> 
+>
 > - How to edit Gradle such, that build copies `example` subdirectories to `run` output (probably only in IntelliJ Idea?  Currently I add build artifacts for that manually which is not nice.)
 > - How to edit Gradle such, that build creates the empty directory `run`.  As if it is missing (`git clean -x -f -d`) build fails.
 > - A short, really easy to understand, comprehensive manual of Gradle which a complete coverage of all the gory details I might want to know about (like the previous points).
