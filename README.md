@@ -18,9 +18,9 @@ Minecraft Forge module to run Python scripts
   - Unix: `$HOME/.minecraft`
   - Windows: `%APPDATA%\.minecraft`
 - Download suitable `pymcfo*.jar` from ["build" branch](https://github.com/hilbix/pymcfo/tree/builds)
-  (or compile it yourself, it|s in `build/libs/` then)
+  (or compile it yourself, it's in `build/libs/` then)
 - Place the `pymcfo*.jar` into dir `mods`
-- Run Minecraft once. This creates directory `pzmcfo` with following subdirs:
+- Run Minecraft once. This creates directory `pymcfo` with following subdirs:
   - `ini` when Minecraft is started (before entering world)
   - `srv` on the Minecraft server side
   - `usr` on the Minecraft client side
@@ -135,7 +135,7 @@ Please note that, even that this already was long, there still are some missing 
 In future I want that this is the full process to get started under Linux:
 
     git clone --recursive https://github.com/hilbix/pymcfo.git
-    cd pzmcfo
+    cd pymcfo
     make
 
 And I think this already is much too complex.
