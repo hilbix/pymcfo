@@ -4,9 +4,11 @@
 > - They can probably read all Minecraft objects and elements.
 > - However I am not sure that they can properly alter things in Minecraft (due to the threading)
 
+
 # PyMcFo
 
 Minecraft Forge module to run Python scripts
+
 
 ## Usage
 
@@ -15,7 +17,7 @@ Minecraft Forge module to run Python scripts
 - Locate the `.minecraft` folder.  Everything needs to be put below that:
   - Unix: `$HOME/.minecraft`
   - Windows: `%APPDATA%\.minecraft`
-- Download suitable `pymcfo*.jar` from [https://github.com/hilbix/pymcfo/tree/builds]()
+- Download suitable `pymcfo*.jar` from ["build" branch](https://github.com/hilbix/pymcfo/tree/builds)
   (or compile it yourself, it|s in `build/libs/` then)
 - Place the `pymcfo*.jar` into dir `mods`
 - Run Minecraft once. This creates directory `pzmcfo` with following subdirs:
@@ -27,7 +29,7 @@ Minecraft Forge module to run Python scripts
 - Download Jython from [jython.org](http://www.jython.org/downloads.html)
   - Put `jython*.jar` in dir `mods`.
   - ~~Put `jython*.jar` in dir `lib` below `pymcfo`.~~ (Does not work for unknown reason)
-  - The copy I use is on [branch libs](https://github.com/hilbix/pymcfo/tree/libs)
+  - The copy I use is on ["libs" branch](https://github.com/hilbix/pymcfo/tree/libs)
 - Download (or write) Python scripts.  Those scripts are text files and end on `.py`
 - Place Python scripts into the proper directory (`ini`/`srv`/`usr`/`run`)
 - As always: Be careful, as insecure scripts (those from unknown sources) can harm your data,
@@ -156,7 +158,7 @@ And I think this already is much too complex.
 
 > I did not find any better solution than that yet:
 >
-> - Go to [https://files.minecraftforge.net/]()
+> - Go to [https://files.minecraftforge.net/](https://files.minecraftforge.net/)
 > - Find the Forge version you want to use
 > - Hover over to "MCP" and click the `(i)` button.
 > - Open the ZIP with 7-zip or similar.
@@ -239,7 +241,7 @@ And I think this already is much too complex.
 >     This Works is placed under the terms of the Copyright Less License,
 >     see file COPYRIGHT.CLL.  USE AT OWN RISK, ABSOLUTELY NO WARRANTY.`
 >
-> You can add your license, but it must be a free license, with free as in
+> You can add your license,     but it must be a free license, with free as in
 free beer and free speech and, if possible, free baby.
 
 
@@ -247,7 +249,7 @@ free beer and free speech and, if possible, free baby.
 
 > As I do not read mails, **open an issue on Github or send a pull request**.
 >
-> Sorry, my pager [https://hydra.geht.net/pager.php]() is currently down.
+> Sorry, my pager [https://hydra.geht.net/pager.php](https://hydra.geht.net/pager.php) is currently down.
 > But if it is back up you can use it, of course.
 
 
@@ -259,6 +261,7 @@ free beer and free speech and, if possible, free baby.
 > - Java wrappers for Python, such that this all can be done from Python
 > - start python scripts from server console
 > - start python scripts from chat
+
 
 # Unknowns
 
