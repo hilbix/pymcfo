@@ -1,5 +1,7 @@
 package net.geht.mc.forge.pymcfo;
 
+import net.minecraft.client.Minecraft;
+import net.minecraftforge.fml.common.MinecraftDummyContainer;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -10,6 +12,7 @@ public class pymcfo
   public static final String MODID = Version.NAME;
   public static final String VERSION = Version.VERSION;
 
+
   @EventHandler
   public void init(FMLInitializationEvent event) throws InterruptedException
     {
@@ -17,5 +20,6 @@ public class pymcfo
 
       new DirectoryExecutor(Config.PYMCFO_INIT).join();
       System.out.println("startup complete: "+MODID);
+
     }
   }
