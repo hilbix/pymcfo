@@ -72,9 +72,9 @@ public class DirectoryExecutor implements Runnable
                   System.out.println("EXEC "+canonicalPath(py));
 
                   Class<?> klass = loader.loadClass("net.geht.mc.forge.pymcfo.PythonCodeExecutor", true);
-                  Constructor inter = klass.getDeclaredConstructor(String.class);
-                  //inter.setAccessible(true);
-                  new ThreadExecutor((Runnable) inter.newInstance(py), py.getName());
+                  Constructor inter = klass.getDeclaredConstructor(File.class);
+//                  //inter.setAccessible(true);
+                  new ThreadExecutor((Runnable)inter.newInstance(py), py.getName());
                 } catch (NoSuchMethodException e)
                 {
                   System.out.println("NoSuchMethodException");
