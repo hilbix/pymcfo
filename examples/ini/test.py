@@ -1,10 +1,10 @@
 #
 
-import java
+from java.lang import System
 
-java.lang.System.out.println("")
-java.lang.System.out.println("")
-java.lang.System.out.println("Hello")
-java.lang.System.out.println("World")
-java.lang.System.out.println("")
-java.lang.System.out.println("")
+System.out.println("")
+System.out.println("")
+System.out.println("Hello")
+System.out.println("World")
+System.out.println("")
+System.out.println("")
