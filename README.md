@@ -15,6 +15,7 @@ Minecraft Forge module to run Python scripts
 > This is under development, so not all features are implemented for now!
 
 - Locate the `.minecraft` folder.  Everything needs to be put below that:
+  - Mac: `~/Library/Application Support/minecraft` (use Finder :: Go :: Folder)
   - Unix: `$HOME/.minecraft`
   - Windows: `%APPDATA%\.minecraft`
 - Download suitable `pymcfo*.jar` from ["build" branch](https://github.com/hilbix/pymcfo/tree/builds)
@@ -74,7 +75,7 @@ Then:
   - if you like you can create this, too
   - This creates the empty "run" directory (in case you wonder because you forgot this step)
 - Answer "Yes" to "Would you like to reload Project"
-  - Under older IntelliJ you might need a restart instead
+  - Restart IntelliJ if this question is not shown
 - Choose Menu "Run" and "Edit Configurations"
   - Expand "Applications" "Minecraft Client"
   - Under "Configuration" "Use Classpath of Module" select "pymcfo_main"
