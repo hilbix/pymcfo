@@ -2,7 +2,8 @@
   "homepage": "https://github.com/hilbix/pymcfo/tree/builds",
   "1.11.2": {
     "0.0.0": "started to work but not really useful.  Runs scripts in dir pymcfo/ on MC startup, but no real Forge integration yet",
-    "0.0.1": "Entwicklung"
+    "0.0.1": "Restructured pymcfo-directories under Minecraft, added harvesting with right-click until this can be done in python.",
+    "0.0.2": "devel"
   },
   "promos": {
     "1.11.2-recommended": "0.0.0",
