@@ -5,6 +5,7 @@
 /build/
 /classes/
 /eclipse/
+/gradle-app.setting
 /out/
 /run/
 *~
