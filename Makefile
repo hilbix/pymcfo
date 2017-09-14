@@ -35,7 +35,7 @@ build:	init
 	./gradlew build
 
 ../pymcfo.jar:	build/libs/pymcfo-*[0-9].jar
-	b='$<'; for a in build/libs/pymcfo-*[0-9].jar; do [ "$$b" -nt "$$a" ] || b="$$a"; done; rm -vf "$@"; ln -s --relative -v "$$b" '$@'
+	b='$<'; for a in build/libs/pymcfo-*[0-9].jar; do [ "$$b" -nt "$$a" ] || b="$$a"; done; rm -vf "$@"; ln -s --relative -v "$$b" '$@'; v="`basename "$$b" .jar`"; v="v`expr "$$v" : 'pymcfo-\(.*\)$$'`"; mkdir "builds/$$v" 2>/dev/null; cp -v -f "build/libs/pymcfo-$v"* "builds/$$v/"
 
 .PHONY:	init
 init:	.gradle/inited
