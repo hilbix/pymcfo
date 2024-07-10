@@ -1,8 +1,14 @@
-> This is in an early stage.  Python scripts already can execute.
+> Sorry, this is abandoned and archived now.
 >
-> - Python scripts run in their own thread and Python interpreter each.
-> - They can probably read all Minecraft objects and elements.
-> - However I am not sure that they can properly alter things in Minecraft (due to the threading)
+> Jython still only supports Python 2 which is hopelessly outdated these days.
+>
+> AFAICS this was the state:
+>
+> - It was able to run Python scripts under Minecraft/Forge 1.11 (but I cannot remember, so I might err)
+> - Each Python script runs in an independent Thread
+> - It was probably able to read all Minecraft objects and elements.  I only tried a few things.
+> - I doubt it can alter things in Minecraft due to the threading (this would lead to crashes!)
+> - I do not think it even is portable to newer Minecraft releases
 
 
 # PyMcFo
